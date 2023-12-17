@@ -62,3 +62,26 @@ class DisplayCommand implements Command {
         }
     }
 }
+
+
+// Concrete command to search by account number
+class SearchCommand implements Command {
+    @Override
+    public void execute(Bank[] accounts, Scanner scanner) {
+        System.out.print("Enter account number to search: ");
+        String searchAccountNumber = scanner.next();
+
+        boolean accountFound = false;
+        for (Bank account : accounts) {
+            if (account.getAccountNumber().equals(searchAccountNumber)) {
+                account.displayAccountDetails();
+                accountFound = true;
+                break;
+            }
+        }
+
+        if (!accountFound) {
+            System.out.println("Account not found with account number: " + searchAccountNumber);
+        }
+    }
+}
