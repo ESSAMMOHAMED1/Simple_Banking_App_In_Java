@@ -50,3 +50,15 @@ class Bank {
 interface Command {
     void execute(Bank[] accounts, Scanner scanner);
 }
+
+// Concrete command to display all account details
+class DisplayCommand implements Command {
+    @Override
+    public void execute(Bank[] accounts, Scanner scanner) {
+        System.out.println("\nAll Account Details:");
+        for (Bank account : accounts) {
+            account.displayAccountDetails();
+            System.out.println("----------------------");
+        }
+    }
+}
