@@ -1,3 +1,6 @@
+import java.util.Scanner;
+
+// Bank class representing a bank account
 class Bank {
     private String accountNumber;
     private String accountHolderName;
@@ -10,6 +13,7 @@ class Bank {
         this.balance = balance;
     }
 
+    // Getter methods to retrieve private fields
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -38,7 +42,7 @@ class Bank {
         }
     }
 
-     // Display account details
+    // Display account details
     public void displayAccountDetails() {
         System.out.println("Account Number: " + accountNumber);
         System.out.println("Account Holder Name: " + accountHolderName);
@@ -63,7 +67,6 @@ class DisplayCommand implements Command {
     }
 }
 
-
 // Concrete command to search by account number
 class SearchCommand implements Command {
     @Override
@@ -85,7 +88,6 @@ class SearchCommand implements Command {
         }
     }
 }
-
 
 // Concrete command to deposit amount
 class DepositCommand implements Command {
@@ -123,7 +125,6 @@ class WithdrawCommand implements Command {
     }
 }
 
-
 // Invoker class
 class MenuInvoker {
     private Command command;
@@ -158,7 +159,6 @@ public class BankingApplication {
 
             accounts[i] = new Bank(accountNumber, accountHolderName, initialBalance);
         }
-
 
         // Create command objects
         Command displayCommand = new DisplayCommand();
