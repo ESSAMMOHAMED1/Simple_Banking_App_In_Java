@@ -1,4 +1,3 @@
-// Bank class representing a bank account
 class Bank {
     private String accountNumber;
     private String accountHolderName;
@@ -9,4 +8,16 @@ class Bank {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
         this.balance = balance;
+    }
+    
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public double getBalance() {
+        return balance;
     }
