@@ -104,3 +104,21 @@ class DepositCommand implements Command {
         }
     }
 }
+
+// Concrete command to withdraw amount
+class WithdrawCommand implements Command {
+    @Override
+    public void execute(Bank[] accounts, Scanner scanner) {
+        System.out.print("Enter account number to withdraw amount: ");
+        String accountNumber = scanner.next();
+
+        for (Bank account : accounts) {
+            if (account.getAccountNumber().equals(accountNumber)) {
+                System.out.print("Enter amount to withdraw: $");
+                double amount = scanner.nextDouble();
+                account.withdraw(amount);
+                break;
+            }
+        }
+    }
+}
