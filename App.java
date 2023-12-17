@@ -85,3 +85,22 @@ class SearchCommand implements Command {
         }
     }
 }
+
+
+// Concrete command to deposit amount
+class DepositCommand implements Command {
+    @Override
+    public void execute(Bank[] accounts, Scanner scanner) {
+        System.out.print("Enter account number to deposit amount: ");
+        String accountNumber = scanner.next();
+
+        for (Bank account : accounts) {
+            if (account.getAccountNumber().equals(accountNumber)) {
+                System.out.print("Enter amount to deposit: $");
+                double amount = scanner.nextDouble();
+                account.deposit(amount);
+                break;
+            }
+        }
+    }
+}
