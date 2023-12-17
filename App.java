@@ -122,3 +122,39 @@ class WithdrawCommand implements Command {
         }
     }
 }
+
+
+// Invoker class
+class MenuInvoker {
+    private Command command;
+
+    public void setCommand(Command command) {
+        this.command = command;
+    }
+
+    public void executeCommand(Bank[] accounts, Scanner scanner) {
+        command.execute(accounts, scanner);
+    }
+}
+
+public class BankingApplication {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of customers: ");
+        int numCustomers = scanner.nextInt();
+
+        Bank[] accounts = new Bank[numCustomers];
+
+        // Input customer details
+        for (int i = 0; i < numCustomers; i++) {
+            System.out.println("\nEnter details for customer " + (i + 1) + ":");
+            System.out.print("Enter account number: ");
+            String accountNumber = scanner.next();
+            System.out.print("Enter account holder name: ");
+            String accountHolderName = scanner.next();
+            System.out.print("Enter initial balance: $");
+            double initialBalance = scanner.nextDouble();
+
+            accounts[i] = new Bank(accountNumber, accountHolderName, initialBalance);
+        }
