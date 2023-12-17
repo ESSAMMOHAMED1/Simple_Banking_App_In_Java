@@ -158,3 +158,54 @@ public class BankingApplication {
 
             accounts[i] = new Bank(accountNumber, accountHolderName, initialBalance);
         }
+
+
+        // Create command objects
+        Command displayCommand = new DisplayCommand();
+        Command searchCommand = new SearchCommand();
+        Command depositCommand = new DepositCommand();
+        Command withdrawCommand = new WithdrawCommand();
+
+        MenuInvoker menuInvoker = new MenuInvoker();
+
+        int choice;
+        do {
+            // Display menu
+            System.out.println("\nMenu:");
+            System.out.println("1. Display all account details");
+            System.out.println("2. Search by account number");
+            System.out.println("3. Deposit amount");
+            System.out.println("4. Withdraw amount");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            // Set the command based on user choice
+            switch (choice) {
+                case 1:
+                    menuInvoker.setCommand(displayCommand);
+                    break;
+                case 2:
+                    menuInvoker.setCommand(searchCommand);
+                    break;
+                case 3:
+                    menuInvoker.setCommand(depositCommand);
+                    break;
+                case 4:
+                    menuInvoker.setCommand(withdrawCommand);
+                    break;
+                case 5:
+                    System.out.println("Exiting the program. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+                    continue;
+            }
+
+            // Execute the command
+            menuInvoker.executeCommand(accounts, scanner);
+        } while (choice != 5);
+
+        scanner.close();
+    }
+}
