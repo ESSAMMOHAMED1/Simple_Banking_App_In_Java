@@ -9,7 +9,7 @@ class Bank {
         this.accountHolderName = accountHolderName;
         this.balance = balance;
     }
-    
+
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -20,4 +20,20 @@ class Bank {
 
     public double getBalance() {
         return balance;
+    }
+
+    // Deposit method
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposit successful. New balance: $" + balance);
+    }
+
+    // Withdraw method
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawal successful. New balance: $" + balance);
+        } else {
+            System.out.println("Insufficient funds!");
+        }
     }
