@@ -45,3 +45,8 @@ class Bank {
         System.out.println("Balance: $" + balance);
     }
 }
+
+// Command interface
+interface Command {
+    void execute(Bank[] accounts, Scanner scanner);
+}
