@@ -37,3 +37,11 @@ class Bank {
             System.out.println("Insufficient funds!");
         }
     }
+
+     // Display account details
+    public void displayAccountDetails() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Holder Name: " + accountHolderName);
+        System.out.println("Balance: $" + balance);
+    }
+}
