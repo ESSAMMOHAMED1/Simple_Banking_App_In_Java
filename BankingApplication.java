@@ -2,18 +2,20 @@ import java.util.Scanner;
 
 // Bank class representing a bank account
 class Bank {
+    //declare private instance variables to store account details.
     private String accountNumber;
     private String accountHolderName;
     private double balance;
 
     // Constructor to initialize the Bank object
+    //constructor of the Bank class
     public Bank(String accountNumber, String accountHolderName, double balance) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
         this.balance = balance;
     }
 
-    // Getter methods to retrieve private fields
+    // creat getter methods to retrieve the values of the private instance variables.
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -26,13 +28,13 @@ class Bank {
         return balance;
     }
 
-    // Deposit method
+    //  method  depositing a specified amount into the account.
     public void deposit(double amount) {
         balance += amount;
         System.out.println("Deposit successful. New balance: $" + balance);
     }
 
-    // Withdraw method
+    // withdrawing a specified amount from the account
     public void withdraw(double amount) {
         if (balance >= amount) {
             balance -= amount;
@@ -42,7 +44,7 @@ class Bank {
         }
     }
 
-    // Display account details
+    // method displays the account details.
     public void displayAccountDetails() {
         System.out.println("Account Number: " + accountNumber);
         System.out.println("Account Holder Name: " + accountHolderName);
@@ -50,7 +52,7 @@ class Bank {
     }
 }
 
-// Command interface
+// define an interface named Command with a single method execute.
 interface Command {
     void execute(Bank[] accounts, Scanner scanner);
 }
@@ -142,6 +144,17 @@ public class BankingApplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("__        __  _____   _        ____    ___    __  __   _____ ");
+        System.out.println("\\ \\      / / | ____| | |      / ___|  / _ \\  |  \\/  | | ____|");
+        System.out.println(" \\ \\ /\\ / /  |  _|   | |     | |     | | | | | |\\/| | |  _|  ");
+        System.out.println("  \\ V  V /   | |___  | |___  | |___  | |_| | | |  | | | |___ ");
+        System.out.println("   \\_/\\_/    |_____| |_____|  \\____|  \\___/  |_|  |_| |_____|");
+        System.out.println("--------------------------------------------------------------");  
+
+
+
         System.out.print("Enter the number of customers: ");
         int numCustomers = scanner.nextInt();
 
@@ -167,7 +180,6 @@ public class BankingApplication {
         Command withdrawCommand = new WithdrawCommand();
 
         MenuInvoker menuInvoker = new MenuInvoker();
-
         int choice;
         do {
             // Display menu
@@ -195,7 +207,7 @@ public class BankingApplication {
                     menuInvoker.setCommand(withdrawCommand);
                     break;
                 case 5:
-                    System.out.println("Exiting the program. Goodbye!");
+                    System.out.println("Thank You For Banking With Us ");
                     break;
                 default:
                     System.out.println("Invalid choice. Please enter a valid option.");
