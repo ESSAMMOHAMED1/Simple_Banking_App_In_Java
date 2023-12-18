@@ -2,20 +2,21 @@ import java.util.Scanner;
 
 // Bank class representing a bank account
 class Bank {
-    //declare private instance variables to store account details.
+    // declare private instance variables to store account details.
     private String accountNumber;
     private String accountHolderName;
     private double balance;
 
     // Constructor to initialize the Bank object
-    //constructor of the Bank class
+    // constructor of the Bank class
     public Bank(String accountNumber, String accountHolderName, double balance) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
         this.balance = balance;
     }
 
-    // creat getter methods to retrieve the values of the private instance variables.
+    // creat getter methods to retrieve the values of the private instance
+    // variables.
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -28,7 +29,7 @@ class Bank {
         return balance;
     }
 
-    //  method  depositing a specified amount into the account.
+    // method depositing a specified amount into the account.
     public void deposit(double amount) {
         balance += amount;
         System.out.println("Deposit successful. New balance: $" + balance);
@@ -59,7 +60,7 @@ interface Command {
 
 // Concrete command to display all account details
 class DisplayCommand implements Command {
-    
+
     public void execute(Bank[] accounts, Scanner scanner) {
         System.out.println("\nAll Account Details:");
         for (Bank account : accounts) {
@@ -71,7 +72,7 @@ class DisplayCommand implements Command {
 
 // Concrete command to search by account number
 class SearchCommand implements Command {
-    
+
     public void execute(Bank[] accounts, Scanner scanner) {
         System.out.print("Enter account number to search: ");
         String searchAccountNumber = scanner.next();
@@ -93,7 +94,7 @@ class SearchCommand implements Command {
 
 // Concrete command to deposit amount
 class DepositCommand implements Command {
-    
+
     public void execute(Bank[] accounts, Scanner scanner) {
         System.out.print("Enter account number to deposit amount: ");
         String accountNumber = scanner.next();
@@ -111,7 +112,7 @@ class DepositCommand implements Command {
 
 // Concrete command to withdraw amount
 class WithdrawCommand implements Command {
-    
+
     public void execute(Bank[] accounts, Scanner scanner) {
         System.out.print("Enter account number to withdraw amount: ");
         String accountNumber = scanner.next();
@@ -144,16 +145,13 @@ public class BankingApplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        
         System.out.println("-------------------------------------------------------------");
         System.out.println("__        __  _____   _        ____    ___    __  __   _____ ");
         System.out.println("\\ \\      / / | ____| | |      / ___|  / _ \\  |  \\/  | | ____|");
         System.out.println(" \\ \\ /\\ / /  |  _|   | |     | |     | | | | | |\\/| | |  _|  ");
         System.out.println("  \\ V  V /   | |___  | |___  | |___  | |_| | | |  | | | |___ ");
         System.out.println("   \\_/\\_/    |_____| |_____|  \\____|  \\___/  |_|  |_| |_____|");
-        System.out.println("--------------------------------------------------------------");  
-
-
+        System.out.println("--------------------------------------------------------------");
 
         System.out.print("Enter the number of customers: ");
         int numCustomers = scanner.nextInt();
